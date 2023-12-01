@@ -9,8 +9,7 @@ __author__ = "Nercino Neto"
 import os
 from thefuzz import fuzz
 import pandas as pd
-import static_variables as static
-from organizing_for_research import cleaning_string
+import scripts.static_objects as static
 
 
 def get_df() -> pd.DataFrame:
@@ -81,7 +80,7 @@ def search(text: str) -> (list[str], list[str]) or None:
     """
     
     # Preparing base variables
-    text = cleaning_string(text)
+    text = static.cleaning_string(text)
     df = get_df()
     pesq_list = df.PESQ_PT.values
     
@@ -94,4 +93,3 @@ def search(text: str) -> (list[str], list[str]) or None:
 
 if __name__ == '__main__':
     print(search('Energia solar'))
-        

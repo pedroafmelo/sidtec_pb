@@ -3,12 +3,8 @@ Organizing the "dbt_2020" file for search.
 
 __author__ = "Nercino Neto"
 """
-
-
-import re
-from unidecode import unidecode
 import pandas as pd
-import static_variables as static
+import static_objects as static
 
 
 def get_df() -> pd.DataFrame:
@@ -53,26 +49,6 @@ def filter_useful_columns(df: pd.DataFrame) -> pd.DataFrame:
     return df.loc[:, static.useful_columns_pt_br]
 
 
-def cleaning_string(text: str) -> str:
-    """
-    Cleaning string to
-    facilitate application
-    of the method
-    Levenshtein Distance
-    """
-
-    # Removing special characters
-    text = unidecode(text)
-
-    # Applying uppercase for security
-    text = text.upper()
-
-    # Get only uppercase letters and numbers
-    text = re.sub(static.regex_letters_numbers, "", text)
-
-    return text
-
-
 def clear_strings_from_a_column(
     df: pd.DataFrame, column=static.pt_br_column
 ) -> pd.DataFrame:
@@ -82,7 +58,7 @@ def clear_strings_from_a_column(
     "cleaning_string" function
     """
 
-    df.loc[:, column] = df[column].apply(cleaning_string)
+    df.loc[:, column] = df[column].apply(static.cleaning_string)
 
     return df
 
