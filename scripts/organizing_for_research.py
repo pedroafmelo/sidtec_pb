@@ -5,14 +5,10 @@ __author__ = "Nercino Neto"
 """
 
 
-import os
 import re
-import pandas as pd
 from unidecode import unidecode
-
-
-input_file = os.path.dirname(os.path.abspath(__file__)) + "/input/dbt_2020.csv"
-output_dir = os.path.dirname(os.path.abspath(__file__)) + "/output/"
+import pandas as pd
+import static_variables as static
 
 
 def get_df() -> pd.DataFrame:
@@ -22,17 +18,10 @@ def get_df() -> pd.DataFrame:
     """
 
     df = pd.read_csv(
-        input_file,
-        sep=",",
-        encoding="UTF-8",
-        usecols=[
-            "NM_ORIENTADOR",
-            "NM_DISCENTE",
-            "NM_PRODUCAO",
-            "NM_PROGRAMA",
-            "DS_RESUMO",
-            "DS_PALAVRA_CHAVE",
-        ],
+        static.url_dbt_2020_file,
+        sep=static.sep,
+        encoding=static.encoding,
+        usecols=static.useful_columns,
     )
 
     return df
@@ -61,10 +50,10 @@ def filter_useful_columns(df: pd.DataFrame) -> pd.DataFrame:
     useful columns
     """
 
-    return df[["NM_ORIENTADOR", "NM_DISCENTE", "PESQ_PT"]]
+    return df.loc[:, static.useful_columns_pt_br]
 
 
-def cleaning_string(texto: str) -> str:
+def cleaning_string(text: str) -> str:
     """
     Cleaning string to
     facilitate application
@@ -73,19 +62,19 @@ def cleaning_string(texto: str) -> str:
     """
 
     # Removing special characters
-    texto = unidecode(texto)
+    text = unidecode(text)
 
     # Applying uppercase for security
-    texto = texto.upper()
+    text = text.upper()
 
     # Get only uppercase letters and numbers
-    texto = re.sub(r"[^A-Z0-9]", "", texto)
+    text = re.sub(static.regex_letters_numbers, "", text)
 
-    return texto
+    return text
 
 
 def clear_strings_from_a_column(
-    df: pd.DataFrame, column="PESQ_PT"
+    df: pd.DataFrame, column=static.pt_br_column
 ) -> pd.DataFrame:
     """
     clear data from a
@@ -100,16 +89,16 @@ def clear_strings_from_a_column(
 
 def create_csv(df: pd.DataFrame) -> None:
     """
-    Create a CSV file
+    Create a "data_for_search_pt_br.csv" file
     """
 
-    df.to_csv("p1esq_test.csv")
+    df.to_csv(static.url_data_for_search_pt_br, index=False)
 
 
 def organizing_for_research() -> None:
     """
-    Main routine,
-    calls other functions
+    Create a csv file
+    with a research column
     """
 
     df = get_df()
