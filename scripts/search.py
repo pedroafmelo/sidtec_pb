@@ -83,7 +83,6 @@ def search(text: str) -> (list[str], list[str]) or None:
     # Preparing base variables
     text = cleaning_string(text)
     df = get_df()
-    print(df.NM_ORIENTADOR.values[0])
     pesq_list = df.PESQ_PT.values
     
     # Applying search
