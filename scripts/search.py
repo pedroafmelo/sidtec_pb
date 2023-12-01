@@ -9,7 +9,22 @@ __author__ = "Nercino Neto"
 import os
 from thefuzz import fuzz
 import pandas as pd
+import static_variables as static
 from organizing_for_research import cleaning_string
+
+
+def get_df() -> pd.DataFrame:
+    """
+    Return a DataFrame
+    from the file "dbt_2020"
+    """
+
+    df = pd.read_csv(
+        static.url_data_for_search_pt_br,
+        sep=static.sep,
+        encoding=static.encoding)
+
+    return df
 
 
 def fuzz_filter(text: str, pesq_list: list[str]) -> list[(int, float)]:
@@ -57,7 +72,7 @@ def separate_results_NM_columns(
     return (nm_discente, nm_orientador)
 
 
-def search(text: str, df: pd.DataFrame) -> (list[str], list[str]) or None:
+def search(text: str) -> (list[str], list[str]) or None:
     """
     Search text in a DataFrame
     using the Levenshtein Distance
@@ -67,6 +82,8 @@ def search(text: str, df: pd.DataFrame) -> (list[str], list[str]) or None:
     
     # Preparing base variables
     text = cleaning_string(text)
+    df = get_df()
+    print(df.NM_ORIENTADOR.values[0])
     pesq_list = df.PESQ_PT.values
     
     # Applying search
@@ -75,3 +92,7 @@ def search(text: str, df: pd.DataFrame) -> (list[str], list[str]) or None:
     search_result = separate_results_NM_columns(df, indexs=filtered_choices)
 
     return search_result
+
+if __name__ == '__main__':
+    print(search('Energia solar'))
+        
