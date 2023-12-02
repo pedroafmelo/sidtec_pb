@@ -7,6 +7,7 @@ from st_keyup import st_keyup
 from streamlit_option_menu import option_menu
 from streamlit_extras.stylable_container import stylable_container 
 import io
+import scripts.static_objects as static
 
 
 st.set_page_config(page_title= "SIDTEC-PB",
@@ -14,7 +15,7 @@ st.set_page_config(page_title= "SIDTEC-PB",
                    layout = "wide")
 
 
-dataframe_csv_path = "../wrangling/dbt_2020.csv"
+dataframe_csv_path = static.url_dbt_2020_file
 dataframe_excel_path = "/Users/pedroafmelo/Documents/projetos/sidtec-pb/wrangling/dbt_excel_2020.xlsx"
 
 @st.cache_data
@@ -34,10 +35,10 @@ def layout():
     coluna1, coluna2, coluna3 = c2.columns(3)
     column1, column2, column3 = c3.columns(3)
     colunas1, colunas2, colunas3 = c4.columns(3)
-    column2.image("/Users/pedroafmelo/Documents/projetos/sidtec-pb/streamlit/img/fapesq.jpg", width = 190)
-    col1.image("/Users/pedroafmelo/Documents/projetos/sidtec-pb/streamlit/img/logo_facebook.jpg", width = 255)
-    coluna2.image("/Users/pedroafmelo/Documents/projetos/sidtec-pb/streamlit/img/ufpb.png", width = 160)
-    colunas3.image("/Users/pedroafmelo/Documents/projetos/sidtec-pb/streamlit/img/lema.png", width = 130)
+    column2.image(static.url_fapesq, width = 190)
+    col1.image(static.url_logo_facebook, width = 255)
+    coluna2.image(static.url_ufpb, width = 160)
+    colunas3.image(static.url_lema, width = 130)
     st.write("#")
     st.title("SIDTec-PB")
     st.markdown("""<h5 style = 'color: grey;'>Sistema de Inteligência de Dados 
@@ -76,6 +77,7 @@ def search_bar():
         st.markdown("""<h5 style= 'text-align: center; color: grey;'
                     >Pesquise por um tema (Palavras-chave, campos acadêmicos...)</h5>""", unsafe_allow_html= True)
     value = st_keyup("")
+    
 
 def df_vis():
     st.write("#")
@@ -128,8 +130,8 @@ def df_vis():
         c1, c2, c3 = st.columns(3)
         col1, col2, col3 = c3.columns(3)
         coluna1, coluna2, coluna3 = c1.columns(3)
-        coluna2.image("/Users/pedroafmelo/Documents/projetos/sidtec-pb/streamlit/img/plataforma-sucupira-removebg-preview.png", width = 290)
-        col2.image("/Users/pedroafmelo/Documents/projetos/sidtec-pb/streamlit/img/capes.png", width = 150)
+        coluna2.image(static.url_plataforma_sucupira_removebg_preview, width = 290)
+        col2.image(static.url_capes, width = 150)
 
     
 
