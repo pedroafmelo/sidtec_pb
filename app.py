@@ -8,6 +8,7 @@ from streamlit_option_menu import option_menu
 from streamlit_extras.stylable_container import stylable_container 
 import io
 import scripts.static_objects as static
+from scripts.search import search 
 
 
 st.set_page_config(page_title= "SIDTEC-PB",
@@ -16,7 +17,6 @@ st.set_page_config(page_title= "SIDTEC-PB",
 
 
 dataframe_csv_path = static.url_dbt_2020_file
-dataframe_excel_path = "/Users/pedroafmelo/Documents/projetos/sidtec-pb/wrangling/dbt_excel_2020.xlsx"
 
 @st.cache_data
 def get_datas() -> pd.DataFrame:
@@ -39,11 +39,16 @@ def layout():
     col1.image(static.url_logo_facebook, width = 255)
     coluna2.image(static.url_ufpb, width = 160)
     colunas3.image(static.url_lema, width = 130)
+
     st.write("#")
     st.title("SIDTec-PB")
+
     st.markdown("""<h5 style = 'color: grey;'>Sistema de Inteligência de Dados 
-               em Ciência e Tecnologia na Paraíba</h5>""", unsafe_allow_html= True)
-    st.markdown("""<hr style="height:2px;border:none;color:red;background-color:red;" /> """, unsafe_allow_html=True)
+               em Ciência e Tecnologia na Paraíba</h5>""",
+               unsafe_allow_html= True)
+    
+    st.markdown("""<hr style="height:2px;border:none;color:red;background-color:red;" /> """,
+                unsafe_allow_html=True)
 
 
 def opt_menu():
@@ -64,20 +69,17 @@ def opt_menu():
 def search_bar():
 
     st.write("#")
-    with stylable_container(
-        key="container_with_border",
-        css_styles="""
-            {
-                border: 1px solid rgba(49, 51, 63, 0.2);
-                border-radius: 0.5rem;
-                padding: calc(1em - 1px)
-            }
-            """,
-    ):
-        st.markdown("""<h5 style= 'text-align: center; color: grey;'
-                    >Pesquise por um tema (Palavras-chave, campos acadêmicos...)</h5>""", unsafe_allow_html= True)
-    value = st_keyup("")
+    st.markdown("""<h5 style= 'text-align: center; color: grey;'
+                    >Pesquise por um tema (Palavras-chave, campos acadêmicos...)</h5>""",
+                    unsafe_allow_html= True)
+    value = st_keyup("🔎")
+    result = search(value)
+    dataframe = pd.DataFrame({"Especialista": result[1]})
+    st.write("#")
     
+    st.dataframe(dataframe["Especialista"].drop_duplicates().head(5),
+                 use_container_width= True,
+                 hide_index= True)
 
 def df_vis():
     st.write("#")
@@ -94,7 +96,7 @@ def df_vis():
         
         st.markdown("""<h5 style= 'text-align: center; color: grey;'
                     >Foram utilizados os dados abertos da plataforma Sucupira, especificamente
-                    a base de teses e dissertações do ano de 2020</h5>""", unsafe_allow_html= True)
+                    a base de teses e dissertações da Paraíba no ano de 2020</h5>""", unsafe_allow_html= True)
         
     st.write("#")
 

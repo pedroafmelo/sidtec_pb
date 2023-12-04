@@ -27,7 +27,7 @@ url_dbt_2020_file = os.path.join(url_raw_data, "dbt_2020.csv")
 
 # processed_data files
 url_data_for_search_pt_br = os.path.join(
-    url_processed_data, "data_for_search_pt_br.csv"
+    url_processed_data, "dbt_2020_rank_for_research.csv"
 )
 
 # Img files
