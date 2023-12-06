@@ -1,10 +1,8 @@
 import pandas as pd
-import time
 import streamlit as st
 from st_keyup import st_keyup
 from streamlit_option_menu import option_menu
 from streamlit_extras.stylable_container import stylable_container 
-import io
 import scripts.static_objects as static
 from scripts.search import search 
 
