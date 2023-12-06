@@ -94,7 +94,7 @@ def df_vis():
             """,
     ):  
         
-        st.markdown("""<h5 style= 'text-align: leftr; color: grey;'
+        st.markdown("""<h5 style= 'text-align: left; color: grey;'
                     >Foram utilizados os dados abertos da plataforma Sucupira, especificamente
                     a base de teses e dissertações da <br>Paraíba no ano de 2020</h5>""", unsafe_allow_html= True)
         
