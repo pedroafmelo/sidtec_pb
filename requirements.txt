@@ -1,0 +1,5 @@
+pandas
+time
+streamlit-extras
+streamlit-keyup
+streamlit-option-menu
