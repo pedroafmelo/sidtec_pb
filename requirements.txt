@@ -3,3 +3,5 @@ streamlit-extras==0.3.5
 streamlit-keyup==0.2.0
 streamlit-option-menu==0.3.6
 pandas==2.1.3
+unicodecsv==0.14.1
+unidecode==1.3.7
