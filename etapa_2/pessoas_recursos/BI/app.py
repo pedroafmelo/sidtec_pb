@@ -65,7 +65,7 @@ def dashboard():
     c1.write("#")
     c2.write("#")
     
-    dados_main = "/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/new_data.xlsx"
+    dados_main = f"{static.url_perspectiva}/dados/new_data.xlsx"
     
 
     dados_main = get_datas(dados_main)
