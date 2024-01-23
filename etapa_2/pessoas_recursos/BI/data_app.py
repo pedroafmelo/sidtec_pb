@@ -1,10 +1,12 @@
 import pandas as pd
 import scripts.static_objects as static
 
-dict_grande_area = {"MULTIDISCIPLINAR": "CTI", "CIÊNCIAS AGRÁRIAS": "CTI", "CIÊNCIAS SOCIAIS APLICADAS": "OUTRAS",
-                    "CIÊNCIAS EXATAS E DA TERRA": "CTI", "CIÊNCIAS DA SAÚDE": "CTI", "Grande Area Não Informada": "OUTRAS",
-                    "CIÊNCIAS BIOLÓGICAS": "CTI", "ENGENHARIAS": "CTI", "CIÊNCIAS HUMANAS": "OUTRAS", 
-                    "LINGÜÍSTICA, LETRAS E ARTES": "OUTRAS"}
+dict_grande_area = {"MULTIDISCIPLINAR": "CTI", "CIÊNCIAS AGRÁRIAS": "CTI", 
+                    "CIÊNCIAS SOCIAIS APLICADAS": "OUTRAS",
+                    "CIÊNCIAS EXATAS E DA TERRA": "CTI", "CIÊNCIAS DA SAÚDE": "CTI", 
+                    "Grande Area Não Informada": "OUTRAS",
+                    "CIÊNCIAS BIOLÓGICAS": "CTI", "ENGENHARIAS": "CTI", 
+                    "CIÊNCIAS HUMANAS": "OUTRAS", "LINGÜÍSTICA, LETRAS E ARTES": "OUTRAS"}
 
 
 def read(file) -> pd.DataFrame:
@@ -29,17 +31,21 @@ lista_pop_pb = [pop for pop in populacao["POP_PB"]]
 
 # CAPES POST GRADUATION LISTS (BRAZIL)
 
-bolsas_posgrad_capes_br_1995a2022["CTI"] = bolsas_posgrad_capes_br_1995a2022["GRANDEAREA"].map(dict_grande_area)
+bolsas_posgrad_capes_br_1995a2022["CTI"] = (
+    bolsas_posgrad_capes_br_1995a2022["GRANDEAREA"].map(dict_grande_area)
+)
 
 lista_CTI_br = []
-for i in range(min(list(bolsas_posgrad_capes_br_1995a2022["ANO"].unique())), max(list(bolsas_posgrad_capes_br_1995a2022["ANO"].unique())) + 1):
+for i in range(min(list(bolsas_posgrad_capes_br_1995a2022["ANO"].unique())), 
+               max(list(bolsas_posgrad_capes_br_1995a2022["ANO"].unique())) + 1):
     dados = bolsas_posgrad_capes_br_1995a2022.query(f"ANO == {i}")
     dados = dados.query("CTI == 'CTI'")
     total = dados["REFERENCIAL"].sum()
     lista_CTI_br.append(total)
 
 lista_outras_br = []
-for i in range(min(list(bolsas_posgrad_capes_br_1995a2022["ANO"].unique())), max(list(bolsas_posgrad_capes_br_1995a2022["ANO"].unique())) + 1):
+for i in range(min(list(bolsas_posgrad_capes_br_1995a2022["ANO"].unique())), 
+               max(list(bolsas_posgrad_capes_br_1995a2022["ANO"].unique())) + 1):
     dados = bolsas_posgrad_capes_br_1995a2022.query(f"ANO == {i}")
     dados = dados.query("CTI == 'OUTRAS'")
     total = dados["REFERENCIAL"].sum()
@@ -47,17 +53,21 @@ for i in range(min(list(bolsas_posgrad_capes_br_1995a2022["ANO"].unique())), max
 
 # CAPES POST GRADUATION LISTS (PB)
 
-bolsas_posgrad_capes_PB_1995a2022["CTI"] = bolsas_posgrad_capes_PB_1995a2022["GRANDEAREA"].map(dict_grande_area)
+bolsas_posgrad_capes_PB_1995a2022["CTI"] = (
+    bolsas_posgrad_capes_PB_1995a2022["GRANDEAREA"].map(dict_grande_area)
+)
 
 lista_CTI_pb = []
-for i in range(min(list(bolsas_posgrad_capes_PB_1995a2022["ANO"].unique())), max(list(bolsas_posgrad_capes_PB_1995a2022["ANO"].unique())) + 1):
+for i in range(min(list(bolsas_posgrad_capes_PB_1995a2022["ANO"].unique())), 
+               max(list(bolsas_posgrad_capes_PB_1995a2022["ANO"].unique())) + 1):
     dados = bolsas_posgrad_capes_PB_1995a2022.query(f"ANO == {i}")
     dados = dados.query("CTI == 'CTI'")
     total = dados["REFERENCIAL"].sum()
     lista_CTI_pb.append(total)
 
 lista_outras_pb = []
-for i in range(min(list(bolsas_posgrad_capes_PB_1995a2022["ANO"].unique())), max(list(bolsas_posgrad_capes_PB_1995a2022["ANO"].unique())) + 1):
+for i in range(min(list(bolsas_posgrad_capes_PB_1995a2022["ANO"].unique())), 
+               max(list(bolsas_posgrad_capes_PB_1995a2022["ANO"].unique())) + 1):
     dados = bolsas_posgrad_capes_PB_1995a2022.query(f"ANO == {i}")
     dados = dados.query("CTI == 'OUTRAS'")
     total = dados["REFERENCIAL"].sum()
@@ -70,17 +80,21 @@ bolsas_posgrad_capes_ne_1995a2022 = bolsas_posgrad_capes_ne_1995a2022.query("REG
 
 bolsas_posgrad_capes_ne_1995a2022.index = range(bolsas_posgrad_capes_ne_1995a2022.shape[0])
 
-bolsas_posgrad_capes_ne_1995a2022["CTI"] = bolsas_posgrad_capes_ne_1995a2022["GRANDEAREA"].map(dict_grande_area)
+bolsas_posgrad_capes_ne_1995a2022["CTI"] = (
+    bolsas_posgrad_capes_ne_1995a2022["GRANDEAREA"].map(dict_grande_area)
+)
 
 lista_CTI_ne = []
-for i in range(min(list(bolsas_posgrad_capes_ne_1995a2022["ANO"].unique())), max(list(bolsas_posgrad_capes_ne_1995a2022["ANO"].unique())) + 1):
+for i in range(min(list(bolsas_posgrad_capes_ne_1995a2022["ANO"].unique())), 
+               max(list(bolsas_posgrad_capes_ne_1995a2022["ANO"].unique())) + 1):
     dados = bolsas_posgrad_capes_ne_1995a2022.query(f"ANO == {i}")
     dados = dados.query("CTI == 'CTI'")
     total = dados["REFERENCIAL"].sum()
     lista_CTI_ne.append(total)
 
 lista_outras_ne = []
-for i in range(min(list(bolsas_posgrad_capes_ne_1995a2022["ANO"].unique())), max(list(bolsas_posgrad_capes_ne_1995a2022["ANO"].unique())) + 1):
+for i in range(min(list(bolsas_posgrad_capes_ne_1995a2022["ANO"].unique())), 
+               max(list(bolsas_posgrad_capes_ne_1995a2022["ANO"].unique())) + 1):
     dados = bolsas_posgrad_capes_ne_1995a2022.query(f"ANO == {i}")
     dados = dados.query("CTI == 'OUTRAS'")
     total = dados["REFERENCIAL"].sum()
@@ -88,41 +102,47 @@ for i in range(min(list(bolsas_posgrad_capes_ne_1995a2022["ANO"].unique())), max
 
 # MESTER AND DOCTOR POST GRADUATION CNPQ LISTS (BR)
 lista_mes_doc_cnpq_br = []
-for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
+for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), 
+               max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
     dados = cnpq_mes_doc_br_2005a2023.query(f"ANO == {i} and REGIAO != 'Exterior'")
     lista_mes_doc_cnpq_br.append(dados.shape[0])
 
 # MESTER AND DOCTOR POST GRADUATION CNPQ LISTS (NE)
 
 lista_mes_doc_cnpq_ne = []
-for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
+for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), 
+               max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
     dados = cnpq_mes_doc_br_2005a2023.query(f"ANO == {i} and REGIAO == 'Nordeste'")
     lista_mes_doc_cnpq_ne.append(dados.shape[0])
 
 # MESTER AND DOCTOR POST GRADUATION CNPQ LISTS (PB)
     
 lista_mes_doc_cnpq_pb = []
-for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
+for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), 
+               max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
     dados = cnpq_mes_doc_br_2005a2023.query(f"ANO == {i} and IDUF == 'PB'")
     lista_mes_doc_cnpq_pb.append(dados.shape[0])
 
 # PRODUCTIVITY IN SCIENTIFIC RESEARCH CNPQ LISTS (BR)
 lista_pq_cnpq_br = []
-for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
+for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), 
+               max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
     dados = cnpq_ppq_br_2005a2023.query(f"ANO == {i} and REGIAO != 'Exterior'")
     lista_pq_cnpq_br.append(dados.shape[0])
 
 # PRODUCTIVITY IN SCIENTIFIC RESEARCH CNPQ LISTS (NE)
 
 lista_pq_cnpq_ne = []
-for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
+for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), 
+               max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
     dados = cnpq_ppq_br_2005a2023.query(f"ANO == {i} and REGIAO == 'Nordeste'")
     lista_pq_cnpq_ne.append(dados.shape[0])
 
 # PRODUCTIVITY IN SCIENTIFIC RESEARCH CNPQ LISTS (PB)
 
 lista_pq_cnpq_pb = []
-for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
+for i in range(min(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())), 
+               max(list(cnpq_mes_doc_br_2005a2023["ANO"].unique())) + 1):
     dados = cnpq_ppq_br_2005a2023.query(f"ANO == {i} and IDUF == 'PB'")
     lista_pq_cnpq_pb.append(dados.shape[0])
 
@@ -134,7 +154,8 @@ new_data = pd.DataFrame({"ANO": lista_anos, "POP_BR": lista_pop_br,"POP_PB": lis
                         "CAPES_OUTRAS_PB": lista_outras_pb,"CAPES_CTI_NE": lista_CTI_ne,
                         "CAPES_OUTRAS_NE": lista_outras_ne, "CNPQ_MES_DOC_BR": lista_mes_doc_cnpq_br, 
                         "CNPQ_MES_DOC_PB": lista_mes_doc_cnpq_pb,"CNPQ_MES_DOC_NE" : lista_mes_doc_cnpq_ne, 
-                        "CNPQ_PQ_BR": lista_pq_cnpq_br, "CNPQ_PQ_PB": lista_pq_cnpq_pb, "CNPQ_PQ_NE": lista_pq_cnpq_ne})
+                        "CNPQ_PQ_BR": lista_pq_cnpq_br, "CNPQ_PQ_PB": lista_pq_cnpq_pb, 
+                        "CNPQ_PQ_NE": lista_pq_cnpq_ne})
  
 new_data["cti/outras_BR"] = new_data["CAPES_CTI_BR"] / new_data["CAPES_OUTRAS_BR"]
 new_data["cti/outras_PB"] = new_data["CAPES_CTI_PB"] / new_data["CAPES_OUTRAS_PB"]
@@ -164,7 +185,30 @@ new_data["bolsas_pq/pop100_BR"] = (new_data["CNPQ_PQ_BR"] / new_data["POP_BR"]) 
 new_data["bolsas_pq/pop100_PB"] = (new_data["CNPQ_PQ_PB"] / new_data["POP_PB"]) * 100000
 new_data["bolsas_pq/pop100_NE"] = (new_data["CNPQ_PQ_NE"] / new_data["POP_NE"]) * 100000
 
+total_grande_area_br_df = (
+    bolsas_posgrad_capes_br_1995a2022.groupby(by = ["ANO", "GRANDEAREA"])["REFERENCIAL"]
+    .sum().to_frame().reset_index()
+)
+
+total_grande_area_ne_df = (
+    bolsas_posgrad_capes_ne_1995a2022.groupby(by = ["ANO", "GRANDEAREA"])["REFERENCIAL"]
+    .sum().to_frame().reset_index()
+)
+
+total_grande_area_pb_df = (
+    bolsas_posgrad_capes_PB_1995a2022.groupby(by = ["ANO", "GRANDEAREA"])["REFERENCIAL"]
+    .sum().to_frame().reset_index()
+)
+
+total_grande_area_br_df.to_excel(f"{static.url_perspectiva}/dados/grande_area_br_df.xlsx", 
+                                 index = False)
+total_grande_area_ne_df.to_excel(f"{static.url_perspectiva}/dados/grande_area_ne_df.xlsx", 
+                                 index = False)
+total_grande_area_pb_df.to_excel(f"{static.url_perspectiva}/dados/grande_area_pb_df.xlsx",
+                                 index = False)
+
 
 # RETURNING AN EXCEL TABLE 
 
-new_data.to_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/bolsas_geral.xlsx", index = False) 
+new_data.to_excel(f"{static.url_perspectiva}/dados/bolsas_geral.xlsx", 
+                  index = False) 
