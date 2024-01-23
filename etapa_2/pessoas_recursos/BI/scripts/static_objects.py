@@ -1,14 +1,5 @@
-"""
-Routine responsible for
-static objects.
-
-__author__ = "Nercino Neto"
-"""
-
-
 import os
 import re
-from unidecode import unidecode
 
 # url dados ehd
 url_ehd = "/Volumes/SEAGATE_EHD/sidtec_pb/pesquisa/drive_sid/"
@@ -47,45 +38,5 @@ orcamento_uni =  os.path.join(url_ehd,
                               "orçamento_universidades_2000_2023.xlsx")
 
 pop = os.path.join(url_perspectiva, "/dados/POPULAÇÃO_1995A2022.xlsx")
-
-# Useful columns
-useful_columns = [
-    "NM_ORIENTADOR",
-    "NM_DISCENTE",
-    "NM_PRODUCAO",
-    "NM_PROGRAMA",
-    "DS_RESUMO",
-    "DS_PALAVRA_CHAVE",
-]
-useful_columns_pt_br = ["NM_ORIENTADOR", "NM_DISCENTE", "PESQ_PT"]
-pt_br_column = "PESQ_PT"
-
-# CSV reading
-sep = ","
-encoding = "UTF-8"
-
-# Regex
-regex_letters_numbers = r"[^A-Z0-9]"
-
-
-def cleaning_string(text: str) -> str:
-    """
-    Cleaning string to
-    facilitate application
-    of the method
-    Levenshtein Distance
-    """
-
-    # Removing special characters
-    text = unidecode(text)
-
-    # Applying uppercase for security
-    text = text.upper()
-
-    # Get only uppercase letters and numbers
-    text = re.sub(regex_letters_numbers, "", text)
-
-    return text
-
 
 
