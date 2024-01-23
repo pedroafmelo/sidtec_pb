@@ -57,9 +57,9 @@ def layout():
 
 def dashboard():
 
-    total_grande_area_br_df = pd.read_excel(static.url_perspectiva, "dados/grande_area_br_df.xlsx")
-    total_grande_area_pb_df = pd.read_excel(static.url_perspectiva, "/dados/grande_area_pb_df.xlsx")
-    total_grande_area_ne_df = pd.read_excel(static.url_perspectiva, "/dados/grande_area_ne_df.xlsx")
+    total_grande_area_br_df = pd.read_excel(f"{static.url_perspectiva}/dados/grande_area_br_df.xlsx")
+    total_grande_area_pb_df = pd.read_excel(f"{static.url_perspectiva}/dados/grande_area_pb_df.xlsx")
+    total_grande_area_ne_df = pd.read_excel(f"{static.url_perspectiva}/dados/grande_area_ne_df.xlsx")
 
     c1, c2 = st.columns(2)
     c1.write("#")
