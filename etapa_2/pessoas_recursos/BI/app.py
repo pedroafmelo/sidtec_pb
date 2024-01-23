@@ -25,7 +25,6 @@ st.set_page_config(page_title= "FOMENTO",
                    initial_sidebar_state= "collapsed")
 
 def main():
-    dados = get_datas(dados_main)
     layout()
     dashboard()
 
