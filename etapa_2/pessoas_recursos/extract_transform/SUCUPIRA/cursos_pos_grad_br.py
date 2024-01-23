@@ -97,7 +97,7 @@ def lists(file):
     
     new_file.set_index("ano")
 
-    new_file.to_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/cursos_posgrad_agg.xlsx", 
+    new_file.to_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/cursos_posgrad_br_agg.xlsx", 
                     index = False)
 
 

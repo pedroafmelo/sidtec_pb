@@ -77,7 +77,7 @@ def dashboard():
     }
 
 
-    dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["cti/outras_br", "cti/outras_pb", "cti/outras_ne"],
+    dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["cti/outras_BR", "cti/outras_PB", "cti/outras_NE"],
                            var_name='Categoria', value_name='Valor')
 
     graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
@@ -155,7 +155,7 @@ def dashboard():
         "Valor": "Bolsas MES/DOC por 10 mil habitantes",
         "Categoria": "Abrangência Territorial"
     }
-        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_md/pop10_br", "bolsas_md/pop10_pb", "bolsas_md/pop10_ne"],
+        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_md/pop10_BR", "bolsas_md/pop10_PB", "bolsas_md/pop10_NE"],
                                var_name='Categoria', value_name='Valor')
 
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
@@ -169,7 +169,7 @@ def dashboard():
         "Valor": "Bolsas PQ por 10 mil habitantes",
         "Categoria": "Abrangência Territorial"
     }
-        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_pq/pop10_br", "bolsas_pq/pop10_pb", "bolsas_pq/pop10_ne"],
+        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_pq/pop10_BR", "bolsas_pq/pop10_PB", "bolsas_pq/pop10_NE"],
                                var_name='Categoria', value_name='Valor')
 
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,

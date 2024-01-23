@@ -136,34 +136,35 @@ new_data = pd.DataFrame({"ANO": lista_anos, "POP_BR": lista_pop_br,"POP_PB": lis
                         "CNPQ_MES_DOC_PB": lista_mes_doc_cnpq_pb,"CNPQ_MES_DOC_NE" : lista_mes_doc_cnpq_ne, 
                         "CNPQ_PQ_BR": lista_pq_cnpq_br, "CNPQ_PQ_PB": lista_pq_cnpq_pb, "CNPQ_PQ_NE": lista_pq_cnpq_ne})
  
-new_data["cti/outras_br"] = new_data["CAPES_CTI_BR"] / new_data["CAPES_OUTRAS_BR"]
-new_data["cti/outras_pb"] = new_data["CAPES_CTI_PB"] / new_data["CAPES_OUTRAS_PB"]
-new_data["cti/outras_ne"] = new_data["CAPES_CTI_NE"] / new_data["CAPES_OUTRAS_NE"]
+new_data["cti/outras_BR"] = new_data["CAPES_CTI_BR"] / new_data["CAPES_OUTRAS_BR"]
+new_data["cti/outras_PB"] = new_data["CAPES_CTI_PB"] / new_data["CAPES_OUTRAS_PB"]
+new_data["cti/outras_NE"] = new_data["CAPES_CTI_NE"] / new_data["CAPES_OUTRAS_NE"]
 
-new_data["bolsas/pop10_BR"] = (new_data["CAPES_CTI_BR"] / new_data["POP_BR"]) * 10000
-new_data["bolsas/pop10_PB"] = (new_data["CAPES_CTI_PB"] / new_data["POP_PB"]) * 10000
-new_data["bolsas/pop10_NE"] = (new_data["CAPES_CTI_NE"] / new_data["POP_NE"]) * 10000
+new_data["bolsas_capes/pop10_BR"] = (new_data["CAPES_CTI_BR"] / new_data["POP_BR"]) * 10000
+new_data["bolsas_capes/pop10_PB"] = (new_data["CAPES_CTI_PB"] / new_data["POP_PB"]) * 10000
+new_data["bolsas_capes/pop10_NE"] = (new_data["CAPES_CTI_NE"] / new_data["POP_NE"]) * 10000
 
-new_data["bolsas/pop100_BR"] = (new_data["CAPES_CTI_BR"] / new_data["POP_BR"]) * 100000
-new_data["bolsas/pop100_PB"] = (new_data["CAPES_CTI_PB"] / new_data["POP_PB"]) * 100000
-new_data["bolsas/pop100_NE"] = (new_data["CAPES_CTI_NE"] / new_data["POP_NE"]) * 100000
+new_data["bolsas_capes/pop100_BR"] = (new_data["CAPES_CTI_BR"] / new_data["POP_BR"]) * 100000
+new_data["bolsas_capes/pop100_PB"] = (new_data["CAPES_CTI_PB"] / new_data["POP_PB"]) * 100000
+new_data["bolsas_capes/pop100_NE"] = (new_data["CAPES_CTI_NE"] / new_data["POP_NE"]) * 100000
+
+new_data["bolsas_md/pop10_BR"] = (new_data["CNPQ_MES_DOC_BR"] / new_data["POP_BR"]) * 10000
+new_data["bolsas_md/pop10_PB"] = (new_data["CNPQ_MES_DOC_PB"] / new_data["POP_PB"]) * 10000
+new_data["bolsas_md/pop10_NE"] = (new_data["CNPQ_MES_DOC_NE"] / new_data["POP_NE"]) * 10000
+
+new_data["bolsas_md/pop100_BR"] = (new_data["CNPQ_MES_DOC_BR"] / new_data["POP_BR"]) * 100000
+new_data["bolsas_md/pop100_PB"] = (new_data["CNPQ_MES_DOC_PB"] / new_data["POP_PB"]) * 100000
+new_data["bolsas_md/pop100_NE"] = (new_data["CNPQ_MES_DOC_NE"] / new_data["POP_NE"]) * 100000
 
 new_data["bolsas_pq/pop10_BR"] = (new_data["CNPQ_PQ_BR"] / new_data["POP_BR"]) * 10000
 new_data["bolsas_pq/pop10_PB"] = (new_data["CNPQ_PQ_PB"] / new_data["POP_PB"]) * 10000
 new_data["bolsas_pq/pop10_NE"] = (new_data["CNPQ_PQ_NE"] / new_data["POP_NE"]) * 10000
 
-new_data["bolsas_pq/pop100_br"] = (new_data["CNPQ_PQ_BR"] / new_data["POP_BR"]) * 100000
-new_data["bolsas_pq/pop100_pb"] = (new_data["CNPQ_PQ_PB"] / new_data["POP_PB"]) * 100000
-new_data["bolsas_pq/pop100_ne"] = (new_data["CNPQ_PQ_NE"] / new_data["POP_NE"]) * 100000
+new_data["bolsas_pq/pop100_BR"] = (new_data["CNPQ_PQ_BR"] / new_data["POP_BR"]) * 100000
+new_data["bolsas_pq/pop100_PB"] = (new_data["CNPQ_PQ_PB"] / new_data["POP_PB"]) * 100000
+new_data["bolsas_pq/pop100_NE"] = (new_data["CNPQ_PQ_NE"] / new_data["POP_NE"]) * 100000
 
-new_data["bolsas_md/pop10_br"] = (new_data["CNPQ_MES_DOC_BR"] / new_data["POP_BR"]) * 10000
-new_data["bolsas_md/pop10_pb"] = (new_data["CNPQ_MES_DOC_PB"] / new_data["POP_PB"]) * 10000
-new_data["bolsas_md/pop10_ne"] = (new_data["CNPQ_MES_DOC_NE"] / new_data["POP_NE"]) * 10000
-
-new_data["bolsas_md/pop100_br"] = (new_data["CNPQ_MES_DOC_BR"] / new_data["POP_BR"]) * 100000
-new_data["bolsas_md/pop100_pb"] = (new_data["CNPQ_MES_DOC_PB"] / new_data["POP_PB"]) * 100000
-new_data["bolsas_md/pop100_ne"] = (new_data["CNPQ_MES_DOC_NE"] / new_data["POP_NE"]) * 100000
 
 # RETURNING AN EXCEL TABLE 
 
-new_data.to_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/new_data.xlsx", index = False) 
+new_data.to_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/bolsas_geral.xlsx", index = False) 
