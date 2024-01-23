@@ -64,7 +64,7 @@ def dashboard():
     c1.write("#")
     c2.write("#")
     
-    dados_main = os.path.join(static.url_perspectiva, "dados/new_data.xlsx")
+    dados_main = os.path.join(static.url_perspectiva, "dados/bolsas_geral.xlsx")
     
 
     dados_main = get_datas(dados_main)
