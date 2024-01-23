@@ -5,7 +5,6 @@ import scripts.static_objects as static
 import plotly.express as pex
 import json
 
-dados_main = "/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/new_data.xlsx"
 
 colunas_br = ['ANO', 'POP_BR', 'POP_BR_10K', 'POP_BR_100K', 'POP_PB', 'POP_PB_10K',
        'POP_PB_100K', 'POP_NE', 'POP_NE_10K', 'POP_NE_100K', 'CAPES_CTI_BR',
