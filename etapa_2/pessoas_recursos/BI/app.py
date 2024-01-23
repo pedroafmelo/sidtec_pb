@@ -77,7 +77,9 @@ def dashboard():
     }
 
 
-    dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["cti/outras_BR", "cti/outras_PB", "cti/outras_NE"],
+    dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["cti/outras_BR", 
+                                                                    "cti/outras_PB", 
+                                                                     "cti/outras_NE"],
                            var_name='Categoria', value_name='Valor')
 
     graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
@@ -122,7 +124,9 @@ def dashboard():
         "Valor": "Bolsas por 10 mil ",
         "Categoria": "Abrangência Territorial"
     }
-        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas/pop10_BR", "bolsas/pop10_PB", "bolsas/pop10_NE"],
+        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas/pop10_BR", 
+                                                                        "bolsas/pop10_PB", 
+                                                                        "bolsas/pop10_NE"],
                                var_name='Categoria', value_name='Valor')
 
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
@@ -136,7 +140,9 @@ def dashboard():
         "Valor": "Bolsas por 100 mil",
         "Categoria": "Abrangência Territorial"
     }
-        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas/pop100_BR", "bolsas/pop100_PB", "bolsas/pop100_NE"],
+        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_capes/pop100_BR", 
+                                                                        "bolsas_capes/pop100_PB", 
+                                                                        "bolsas_capes/pop100_NE"],
                                var_name='Categoria', value_name='Valor')
 
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
@@ -155,12 +161,15 @@ def dashboard():
         "Valor": "Bolsas MES/DOC por 10 mil habitantes",
         "Categoria": "Abrangência Territorial"
     }
-        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_md/pop10_BR", "bolsas_md/pop10_PB", "bolsas_md/pop10_NE"],
+        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_md/pop10_BR", 
+                                                                        "bolsas_md/pop10_PB", 
+                                                                        "bolsas_md/pop10_NE"],
                                var_name='Categoria', value_name='Valor')
 
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
                                       labels= nome_categorias)
-        st.markdown("""<h5 style = 'color: grey;'>Bolsas CNPQ de Mestrado e Doutorado por 10 mil habitantes </h5>""",
+        st.markdown("""<h5 style = 'color: grey;'>Bolsas CNPQ de Mestrado 
+                    e Doutorado por 10 mil habitantes </h5>""",
                   unsafe_allow_html= True)
         st.plotly_chart(graph_bolsas_capes, use_container_width= True)
     else: 
@@ -169,12 +178,15 @@ def dashboard():
         "Valor": "Bolsas PQ por 10 mil habitantes",
         "Categoria": "Abrangência Territorial"
     }
-        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_pq/pop10_BR", "bolsas_pq/pop10_PB", "bolsas_pq/pop10_NE"],
+        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_pq/pop10_BR", 
+                                                                        "bolsas_pq/pop10_PB", 
+                                                                        "bolsas_pq/pop10_NE"],
                                var_name='Categoria', value_name='Valor')
 
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
                                       labels= nome_categorias)
-        st.markdown("""<h5 style = 'color: grey;'>Bolsas CNPQ de Produtividade em Pesquisa por 10 mil habitantes</h5>""",
+        st.markdown("""<h5 style = 'color: grey;'>Bolsas CNPQ de Produtividade em Pesquisa 
+                    por 10 mil habitantes</h5>""",
                   unsafe_allow_html= True)
         st.plotly_chart(graph_bolsas_capes, use_container_width= True)
     
