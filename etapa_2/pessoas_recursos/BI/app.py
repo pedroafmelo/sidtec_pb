@@ -1,13 +1,9 @@
 import pandas as pd
 import streamlit as st
 import os
-from st_keyup import st_keyup
-from streamlit_option_menu import option_menu
-from streamlit_extras.stylable_container import stylable_container 
 import scripts.static_objects as static
 import plotly.express as pex
 import json
-from streamlit_lottie import st_lottie
 
 dados_main = "/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/new_data.xlsx"
 
@@ -36,11 +32,6 @@ def main():
 @st.cache_data
 def get_datas(data) -> pd.DataFrame:
     return pd.read_excel(data)
-
-def import_json(path):
-    with open(path, "r", encoding="utf8", errors="ignore") as file:
-        url = json.load(file)
-        return url
 
 def layout():
     c1, c2, c3, c4 = st.columns(4)

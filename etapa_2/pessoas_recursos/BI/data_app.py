@@ -187,5 +187,3 @@ new_data["bolsas_md/pop100_ne"] = new_data["CNPQ_MES_DOC_BR"] / new_data["POP_NE
 # RETURNING AN EXCEL TABLE 
 
 new_data.to_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/new_data.xlsx", index = False) 
-
-print(new_data.columns)
