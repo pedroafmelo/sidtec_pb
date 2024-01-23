@@ -1,0 +1,2 @@
+
+Nesta base, nada muito relevante com relação ao nome do periódico a qual ela está publicada. Além disso, nenhum indicador de qualidade da produção. Mas se soubermos ao menos o nome do periódico a qual aquela produção foi publicada, podemos ter um indicador de qualidade.

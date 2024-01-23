@@ -1,0 +1,42 @@
+{
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 0,
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontLigatures": true,
+    "workbench.editor.labelFormat": "short",
+    "explorer.compactFolders": false,
+    "breadcrumbs.enabled": false,
+    "editor.minimap.enabled": false,
+    "window.titleBarStyle": "native",
+    "apc.electron": {
+        "titleBarStyle": "hiddenInset",
+        "trafficLightPosition": {
+            "x": 16,
+            "y": 10
+        }
+    },
+    "apc.header": {
+        "height": 36
+    },
+    "apc.listRow": {
+        "heigh": 24
+    },
+    "apc.stylesheet": {
+        ".title-label > h2": "display: none",
+        ".editor-actions": "display: none",
+        ".nosidebar .inline-tabs-placeholder": "width: 75px",
+        ".pane-body": "padding: 8px",
+        ".pane-header": "padding: 8 8px",
+        ".split-view-view:first-child .pane-header": "display: none !important",
+        ".monaco-list-row": "border-radius: 4px",
+        ".monaco-workbench .monaco-list:not(.element-focused):focus:before":"display: none"
+    },
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "explorer.fileNesting.enabled": true,
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "JetBrains Mono"
+
+}   
+
