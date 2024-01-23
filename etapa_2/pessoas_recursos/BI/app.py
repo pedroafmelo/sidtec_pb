@@ -124,9 +124,9 @@ def dashboard():
         "Valor": "Bolsas por 10 mil ",
         "Categoria": "Abrangência Territorial"
     }
-        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas/pop10_BR", 
-                                                                        "bolsas/pop10_PB", 
-                                                                        "bolsas/pop10_NE"],
+        dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_capes/pop10_BR", 
+                                                                        "bolsas_capes/pop10_PB", 
+                                                                        "bolsas_capes/pop10_NE"],
                                var_name='Categoria', value_name='Valor')
 
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
