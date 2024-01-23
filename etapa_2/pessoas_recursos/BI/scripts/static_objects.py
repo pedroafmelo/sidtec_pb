@@ -1,5 +1,4 @@
 import os
-import re
 
 # url dados ehd
 url_ehd = "/Volumes/SEAGATE_EHD/sidtec_pb/pesquisa/drive_sid/"
@@ -37,6 +36,6 @@ cnpq_ppq_br_2005a2023 = os.path.join(url_ehd,
 orcamento_uni =  os.path.join(url_ehd,
                               "orçamento_universidades_2000_2023.xlsx")
 
-pop = os.path.join(url_perspectiva, "/dados/POPULAÇÃO_1995A2022.xlsx")
+pop = os.path.join(url_perspectiva, "dados/POPULAÇÃO_1995A2022.xlsx")
 
 

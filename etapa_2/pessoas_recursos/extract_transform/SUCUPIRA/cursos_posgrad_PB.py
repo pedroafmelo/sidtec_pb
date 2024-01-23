@@ -24,7 +24,7 @@ lista_cties = ['CIÊNCIAS AGRÁRIAS', 'CIÊNCIAS DA SAÚDE',
 
 cti_dict = {}
 def read(base):
-    file = pd.read_csv(base, sep = ";", encoding = "latin", usecols = colunas).query("SG_ENTIDADE_ENSINO == 'UFPB-JP'")
+    file = pd.read_csv(base, sep = ";", encoding = "latin", usecols = colunas).query("SG_UF_PROGRAMA == 'PB'")
 
     file = file[["AN_BASE", "NM_GRANDE_AREA_CONHECIMENTO", "NM_REGIAO", "SG_UF_PROGRAMA",
                  "CS_STATUS_JURIDICO", "CD_CONCEITO_CURSO", "NM_GRAU_CURSO"]]
@@ -47,10 +47,15 @@ def lists(file):
         dados = file.query(f"ano == {i}")
         lista_total.append(dados.shape[0])
 
-    lista_conceito = []
+    lista_conceito_fechado = []
     for i in range(min(list(file["ano"].unique())), max(list(file["ano"].unique())) + 1):
-        dados = file.query(f"ano == {i} and conceito_curso >= 4")
-        lista_conceito.append(dados.shape[0])
+        dados = file.query(f"ano == {i} and conceito_curso >= 5")
+        lista_conceito_fechado.append(dados.shape[0])
+
+    lista_conceito_aberto = []
+    for i in range(min(list(file["ano"].unique())), max(list(file["ano"].unique())) + 1):
+        dados = file.query(f"ano == {i} and conceito_curso > 5")
+        lista_conceito_aberto.append(dados.shape[0])
 
     lista_mestrado = []
     for i in range(min(list(file["ano"].unique())), max(list(file["ano"].unique())) + 1):
@@ -75,7 +80,8 @@ def lists(file):
                              "CTI": lista_cti,
                              "mestrado": lista_mestrado,
                              "doutorado": lista_doutorado,
-                             "conceito_maior_igual_quatro": lista_conceito})
+                             "conceito_maior_igual_quatro": lista_conceito_fechado,
+                             "conceito_maior_cinco": lista_conceito_aberto})
     
     new_file.set_index("ano")
 

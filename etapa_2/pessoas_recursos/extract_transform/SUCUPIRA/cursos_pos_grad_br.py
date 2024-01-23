@@ -57,10 +57,15 @@ def lists(file):
         dados = file.query(f"ano == {i} and UF_curso == 'PB'")
         lista_pb.append(dados.shape[0])
 
-    lista_conceito = []
+    lista_conceito_fechado = []
     for i in range(min(list(file["ano"].unique())), max(list(file["ano"].unique())) + 1):
-        dados = file.query(f"ano == {i} and conceito_curso >= 4")
-        lista_conceito.append(dados.shape[0])
+        dados = file.query(f"ano == {i} and conceito_curso >= 5")
+        lista_conceito_fechado.append(dados.shape[0])
+    
+    lista_conceito_aberto = []
+    for i in range(min(list(file["ano"].unique())), max(list(file["ano"].unique())) + 1):
+        dados = file.query(f"ano == {i} and conceito_curso > 5")
+        lista_conceito_aberto.append(dados.shape[0])
 
     lista_mestrado = []
     for i in range(min(list(file["ano"].unique())), max(list(file["ano"].unique())) + 1):
@@ -87,7 +92,8 @@ def lists(file):
                              "PB": lista_pb,
                              "mestrado": lista_mestrado,
                              "doutorado": lista_doutorado,
-                             "conceito_maior_igual_quatro": lista_conceito})
+                             "conceito_maior_igual_cinco": lista_conceito_fechado,
+                             "conceito_maior_cinco": lista_conceito_aberto})
     
     new_file.set_index("ano")
 
@@ -102,7 +108,4 @@ for arquivos in lista:
 
 final_data = pd.concat(lista_df, ignore_index= True)
 
-final_data.to_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/cursos_posgrad_br.xlsx",
-                    index = False)
-
-# lists(final_data) 
+lists(final_data) 
