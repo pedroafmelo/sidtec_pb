@@ -57,12 +57,6 @@ def layout():
 
 def dashboard():
 
-
-
-    total_grande_area_br = pd.read_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/grande_area_br.xlsx")
-    total_grande_area_pb = pd.read_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/grande_area_pb.xlsx")
-    total_grande_area_ne = pd.read_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/grande_area_ne.xlsx")
-
     total_grande_area_br_df = pd.read_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/grande_area_br_df.xlsx")
     total_grande_area_pb_df = pd.read_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/grande_area_pb_df.xlsx")
     total_grande_area_ne_df = pd.read_excel("/Users/pedroafmelo/Documents/projetos/sidtec_pb/etapa_2/pessoas_recursos/dados/grande_area_ne_df.xlsx")
