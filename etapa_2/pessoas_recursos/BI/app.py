@@ -90,6 +90,8 @@ def dashboard():
     graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
                                   labels= nome_categorias, color_discrete_map= mapa_cores,
                                   )
+    
+    graph_bolsas_capes.update_traces(line=dict(width=4))
 
     c1.markdown("""<h5 style = 'color:  #4F4F4F;'>Bolsas CAPES em CTI/Outras Áreas</h5>""",
                   unsafe_allow_html= True)
@@ -159,6 +161,8 @@ def dashboard():
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria', markers=True,
                               color_discrete_map=mapa_cores, labels= nome_categorias)
         
+        graph_bolsas_capes.update_traces(line=dict(width=4))
+        
         st.markdown("""<h5 style = 'color: #4F4F4F;'>Bolsas Capes por 10 mil habitantes </h5>""",
                   unsafe_allow_html= True)
         
@@ -182,6 +186,8 @@ def dashboard():
 
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
                                       color_discrete_map=mapa_cores, labels = nome_categorias)
+        
+        graph_bolsas_capes.update_traces(line=dict(width=4))
         
         st.markdown("""<h5 style = 'color: #4F4F4F;'>Bolsas Capes por 100 mil habitantes </h5>""",
                   unsafe_allow_html= True)
@@ -215,6 +221,8 @@ def dashboard():
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
                                       color_discrete_map=mapa_cores, labels = nome_categorias)
         
+        graph_bolsas_capes.update_traces(line=dict(width=4))
+        
         st.markdown("""<h5 style = 'color: #4F4F4F;'>Bolsas CNPQ de Mestrado 
                     e Doutorado por 10 mil habitantes </h5>""",
                   unsafe_allow_html= True)
@@ -242,6 +250,8 @@ def dashboard():
         graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
                                       color_discrete_map= mapa_cores, labels = nome_categorias)
         
+        graph_bolsas_capes.update_traces(line=dict(width=4))
+
         st.markdown("""<h5 style = 'color: #4F4F4F;'>Bolsas CNPQ de Produtividade em Pesquisa 
                     por 10 mil habitantes</h5>""",
                   unsafe_allow_html= True)

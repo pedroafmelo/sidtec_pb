@@ -20,9 +20,15 @@ mapa_org_acad = {1: "Universidade", 2: "Centro Universitário", 3: "Faculdade",
                  4: "Instituto Federal de Educação, Ciência e Tecnologia",
                  5: "Centro Federal de Educação Tecnológica"}
 
-mapa_cat_adm = {1: "Pública Federal", 2: "Pública Estadual", 3: "Pública Municipal", 4: "Privada com fins lucrativos", 
-                5: "Privada sem fins lucrativos", 6: "Privada - Particular em sentido estrito", 
-                7: "Especial", 8: "Privada comunitária", 9: "Privada confessional"}
+mapa_cat_adm = {1: "Pública Federal", 
+                2: "Pública Estadual", 
+                3: "Pública Municipal", 
+                4: "Privada com fins lucrativos", 
+                5: "Privada sem fins lucrativos", 
+                6: "Privada - Particular em sentido estrito", 
+                7: "Especial", 
+                8: "Privada comunitária", 
+                9: "Privada confessional"}
 
 
 def read(base):
@@ -53,14 +59,19 @@ def read(base):
     file = file[['NU_ANO_CENSO', 'NO_REGIAO_IES', 'SG_UF_IES', 'NO_MUNICIPIO_IES',
        'IN_CAPITAL_IES', 'NO_IES', 'SG_IES', 'ORGANIZACAO_ACADEMICA',
        'CATEGORIA_ADMINISTRATIVA', 'QT_TEC_TOTAL',
-       'tec_adm_especializacao', 'tec_adm_mestrado', 'tec_adm_doutorado', 'QT_DOC_TOTAL', 'QT_DOC_EXE', 'QT_DOC_EX_ESP',
+       'tec_adm_especializacao', 'tec_adm_mestrado', 'tec_adm_doutorado',
+       'QT_DOC_TOTAL', 'QT_DOC_EXE', 'QT_DOC_EX_ESP',
        'QT_DOC_EX_MEST', 'QT_DOC_EX_DOUT']]
 
  
     
-    file.columns = ["ano", "regiao_ies", "sigla_uf", "municipio", "capital", "nome_ies", "sigla_ies", "org_academica", "cat_administrativa", "total_tec_adm", "tec_adm_especializacao", "tec_adm_mestrado", "tec_adm_doutorado", "total_docentes", "docentes_exercicio", "docentes_esp_exercicio", "docentes_mest_exercicio", "docentes_dout_exercicio"]
+    file.columns = ["ano", "regiao_ies", "sigla_uf", "municipio", "capital", 
+                    "nome_ies", "sigla_ies", "org_academica", "cat_administrativa",
+                    "total_tec_adm", "tec_adm_especializacao", "tec_adm_mestrado",
+                    "tec_adm_doutorado", "total_docentes", "docentes_exercicio",
+                    "docentes_esp_exercicio", "docentes_mest_exercicio",
+                    "docentes_dout_exercicio"]
     
-
     return file
 
 
