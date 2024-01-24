@@ -85,7 +85,7 @@ def dashboard():
                            var_name='Categoria', value_name='Valor')
     
     mapa_cores = {'cti/outras_BR': ' gray', 'cti/outras_PB': 'red', 
-                      'cti/outras_NE': 'darkgray'}
+                      'cti/outras_NE': '#c6c6c6'}
 
     graph_bolsas_capes = pex.line(dados_longos, x="ANO", y="Valor", color='Categoria',markers = True,
                                   labels= nome_categorias, color_discrete_map= mapa_cores,
@@ -148,7 +148,7 @@ def dashboard():
         }
 
         mapa_cores = {'bolsas_capes/pop10_BR': 'gray', 'bolsas_capes/pop10_PB': 'red', 
-                      'bolsas_capes/pop10_NE': 'darkgray'}
+                      'bolsas_capes/pop10_NE': '#c6c6c6'}
         
         dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_capes/pop10_BR", 
                                                                         "bolsas_capes/pop10_PB", 
@@ -172,7 +172,7 @@ def dashboard():
         }
         
         mapa_cores = {'bolsas_capes/pop100_BR': 'gray', 'bolsas_capes/pop100_PB': 'red', 
-                      'bolsas_capes/pop100_NE': 'darkgray'}
+                      'bolsas_capes/pop100_NE': '#c6c6c6'}
         
         dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_capes/pop100_BR", 
                                                                         "bolsas_capes/pop100_PB", 
@@ -204,7 +204,7 @@ def dashboard():
         }
 
         mapa_cores = {'bolsas_md/pop10_BR': 'gray', 'bolsas_md/pop10_PB': 'red', 
-                      'bolsas_md/pop10_NE': 'darkgray'}
+                      'bolsas_md/pop10_NE': '#c6c6c6'}
         
         dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_md/pop10_BR", 
                                                                         "bolsas_md/pop10_PB", 
@@ -231,7 +231,7 @@ def dashboard():
         }
 
         mapa_cores = {'bolsas_pq/pop10_BR': 'grey', 'bolsas_pq/pop10_PB': 'red', 
-                      'bolsas_pq/pop10_NE': 'darkgrey'}
+                      'bolsas_pq/pop10_NE': '#c6c6c6'}
         
         dados_longos = pd.melt(dados_main, id_vars=['ANO'], value_vars=["bolsas_pq/pop10_BR", 
                                                                         "bolsas_pq/pop10_PB", 
